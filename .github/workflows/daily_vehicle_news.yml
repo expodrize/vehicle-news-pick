@@ -2,7 +2,7 @@ name: Vehicle Daily Brief
 
 on:
   schedule:
-    # 毎朝6:30 JST = 21:30 UTC (前日)
+    # 毎朝6:30 JST = 21:30 UTC (前日) 
     - cron: "30 21 * * *"
   workflow_dispatch: # 手動実行ボタン（テスト用）
 
