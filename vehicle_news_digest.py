@@ -77,7 +77,10 @@ def rank_and_summarize(articles: list[dict]) -> str:
   </div>
   <h2 style="font-size: 16px; font-weight: bold; margin: 0 0 10px 0; line-height: 1.5; color: #1a202c;">[日本語タイトル]</h2>
   <p style="font-size: 14px; line-height: 1.8; color: #4a5568; margin: 0 0 12px 0;">[ビジネスパーソン向け解説：なぜ重要か、何が変わるか、何をすべきか、を3〜4文で]</p>
-  <a href="[元記事URL]" style="font-size: 12px; color: #0f3460; text-decoration: none;">→ 原文を読む</a>
+  <div style="display: flex; gap: 16px; margin-top: 4px;">
+    <a href="[元記事URL]" style="font-size: 12px; color: #0f3460; text-decoration: none;">→ 原文を読む</a>
+    <a href="https://www.google.com/search?q=[日本語タイトルの簡潔な検索キーワードをURLエンコード。スペースは+に変換。例：中国EV+欧州市場+拡大]" style="font-size: 12px; color: #718096; text-decoration: none;">🔍 Google で検索</a>
+  </div>
 </div>
 
 [フッター：]
