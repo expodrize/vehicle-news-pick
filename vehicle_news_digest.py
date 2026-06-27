@@ -43,7 +43,7 @@ def fetch_vehicle_news() -> list[dict]:
 
 def rank_and_summarize(articles: list[dict]) -> str:
     articles_text = "\n\n".join(
-        f"{i+1}. [{a['source']}] {a['title']}\n   {a['description']}"
+        f"{i+1}. [{a['source']}] {a['title']}\n   {a['description']}\n   URL: {a['url']}"
         for i, a in enumerate(articles)
     )
 
@@ -95,7 +95,14 @@ def rank_and_summarize(articles: list[dict]) -> str:
         max_tokens=2000,
         messages=[{"role": "user", "content": prompt}],
     )
-    return message.content[0].text
+    html = message.content[0].text
+    # Markdownコードブロックが混入した場合に除去
+    html = html.strip()
+    if html.startswith("```"):
+        html = html.split("\n", 1)[-1]
+    if html.endswith("```"):
+        html = html.rsplit("```", 1)[0]
+    return html.strip()
 
 
 def send_email(html_body: str) -> None:
